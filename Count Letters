@@ -1,0 +1,23 @@
+import java.util.*;
+class CountLetters {
+    public static void main(String[] args) {
+        Scanner obj = new Scanner(System.in);
+        String s = obj.nextLine();
+        char A = s.charAt(0);
+        int count = 1;
+        StringBuilder str = new StringBuilder();
+        for (int i = 1; i < s.length(); i++) {
+            if (s.charAt(i) == A) {
+                count++;
+            } else {
+                str.append(A).append(count);
+                A = s.charAt(i);
+                count = 1;
+            }
+        }
+
+        str.append(A).append(count);
+        System.out.print(str.toString());
+
+    }
+}
