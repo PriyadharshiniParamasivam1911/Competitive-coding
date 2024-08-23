@@ -1,0 +1,21 @@
+import java.util.*;
+class LuckyNum{
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String s = scanner.nextLine();
+        int luckyNum = calculateLuckyNum(s);
+        System.out.println("Lucky number: " + luckyNum);
+    }
+    public static int calculateLuckyNum(String str) {
+        int sum = 0;
+        for (char ch : str.toCharArray()) {
+            if (Character.isLetter(ch)) {
+                sum += Character.toUpperCase(ch) - 'A' + 1;
+            }
+        }
+        while (sum > 9) {
+            sum = sum / 10 + sum % 10;
+        }
+        return sum;
+    }
+}
